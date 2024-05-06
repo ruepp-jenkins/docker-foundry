@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 echo "Start build process"
 
 # avoid some dialogs
