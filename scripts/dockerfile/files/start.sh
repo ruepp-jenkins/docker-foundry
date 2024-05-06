@@ -1,4 +1,5 @@
 #!/bin/bash
+export serverpid=0
 
 # initialize trap to forceful stop the bot
 trap terminator SIGHUP SIGINT SIGQUIT SIGTERM
@@ -11,7 +12,7 @@ function terminator() {
 }
 
 function stop() {
-  kill $child
+  kill $serverpid
 }
 
 function start() {
@@ -33,7 +34,8 @@ function start() {
   /usr/games/steamcmd +force_install_dir "${GAMESERVER_FILES}" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
 
   echo "Launching gameserver"
-  xvfb-run wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe -log > ${GAMESERVER_FILES}/server.log
+  xvfb-run wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe -log > ${GAMESERVER_FILES}/server.log &
+  serverpid=$!
 }
 
 start
