@@ -23,12 +23,13 @@ function start() {
 
   if [ ! -f ${GAMESERVER_FILES}/App.cfg ]; then
     echo "Configuration file missing, creating default file."
-    echo "Adjust this file to your needs and start the container again"
+    echo "Adjust this file to your needs and start the container again. See:"
+    echo "https://dedicated.foundry-game.com/"
     cp /docker/App.cfg ${GAMESERVER_FILES}
     exit 1
   fi
 
-  echo "Starting wine environment"
+  echo "Preparing wine environment"
   Xvfb :0 -screen 0 640x480x24:32 &
 
   echo "Launching gameserver"
