@@ -17,13 +17,14 @@ ENV STEAM_GAMESERVERID="2915550"
 ENV STEAM_ADDITIONAL_UPDATE_ARGS=""
 ENV TZ="Europe/Berlin"
 
-RUN  groupadd -g ${GID} steam && useradd -u ${UID} -g ${GID} -m -s /bin/bash steam
-
 ADD scripts/dockerfile/ /build
 
-RUN /bin/bash /build/build.sh
+RUN /bin/bash /build/build.sh \
+    && groupadd -g ${GID} steam \
+    && useradd -u ${UID} -g ${GID} -m -s /bin/bash steam
 
 USER steam
+
 EXPOSE 3724
 EXPOSE 27015
 
