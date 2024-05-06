@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 echo "Starting build workflow"
 scripts/docker_initialize.sh
 . scripts/steam.sh
