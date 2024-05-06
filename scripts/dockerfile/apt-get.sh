@@ -9,6 +9,7 @@ apt-get install -y \
     software-properties-common \
     tzdata \
     wine \
+    wine32:i386 \
     winbind \
     xvfb \
     xserver-xorg
