@@ -19,4 +19,3 @@ echo "Install/update gaming files"
 echo "Launching gameserver"
 Xvfb :0 -screen 0 640x480x24:32 &
 DISPLAY=:0.0 wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe -log | tee ${GAMESERVER_FILES}/server.log
-serverpid=$!

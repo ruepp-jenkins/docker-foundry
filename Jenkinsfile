@@ -9,14 +9,6 @@ properties(
                 string(
                     name: 'IMAGE_FULLNAME',
                     defaultValue: 'stefanruepp/foundry-gameserver'
-                ),
-                string(
-                    name: 'STEAM_GAMESERVERID',
-                    defaultValue: '2915550'
-                ),
-                string(
-                    name: 'GAMESERVER_CMD',
-                    defaultValue: 'FoundryDedicatedServer.exe -log'
                 )
             ]
         )
