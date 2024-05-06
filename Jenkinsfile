@@ -17,10 +17,6 @@ properties(
                 string(
                     name: 'GAMESERVER_CMD',
                     defaultValue: 'FoundryDedicatedServer.exe -log'
-                ),
-                string(
-                    name: 'STEAM_ADDITIONAL_UPDATE_ARGS',
-                    defaultValue: ''
                 )
             ]
         )
@@ -35,18 +31,6 @@ pipeline {
         URLTrigger(
             cronTabSpec: 'H/30 * * * *',
             entries: [
-                URLTriggerEntry(
-                    url: 'https://www.syncovery.com/linver_x86_64-Web.tar.gz.txt',
-                    contentTypes: [
-                        MD5Sum()
-                    ]
-                ),
-                URLTriggerEntry(
-                    url: 'https://www.syncovery.com/linver_aarch64.tar.gz.txt',
-                    contentTypes: [
-                        MD5Sum()
-                    ]
-                ),
                 URLTriggerEntry(
                     url: 'https://hub.docker.com/v2/namespaces/library/repositories/ubuntu/tags/24.04',
                     contentTypes: [
