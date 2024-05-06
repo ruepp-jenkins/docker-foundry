@@ -6,8 +6,8 @@ ARG BUILDPLATFORM
 ARG STEAM_GAMESERVERID
 ARG GAMESERVER_CMD
 
-ARG UID=1000
-ARG GID=1000
+ARG UID=2000
+ARG GID=2000
 
 LABEL maintainer="Stefan Ruepp <stefan@ruepp.info>"
 LABEL github="https://github.com/MyUncleSam/docker-foundry/"
