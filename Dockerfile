@@ -24,7 +24,8 @@ ADD scripts/dockerfile/ /build
 RUN /bin/bash /build/build.sh
 
 USER steam
-EXPOSE 8999
+EXPOSE 3724
+EXPOSE 27015
 
-VOLUME [ "/server", "/foundry", "/home/steam/.steam" ]
+VOLUME [ "/server", "/foundry", "/home/steam/Steam" ]
 CMD [ "/docker/start.sh" ]
