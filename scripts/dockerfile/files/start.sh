@@ -17,5 +17,6 @@ echo "Install/update gaming files"
 /usr/games/steamcmd +force_install_dir "${GAMESERVER_FILES}" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
 
 echo "Launching gameserver"
-xvfb-run wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe -log | tee ${GAMESERVER_FILES}/server.log
+Xvfb :0 -screen 0 640x480x24:32 &
+DISPLAY=:0.0 wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe -log | tee ${GAMESERVER_FILES}/server.log
 serverpid=$!
