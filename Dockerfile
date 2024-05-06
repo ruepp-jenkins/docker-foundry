@@ -20,12 +20,11 @@ ENV TZ="Europe/Berlin"
 
 RUN  groupadd -g ${GID} steam && useradd -u ${UID} -g ${GID} -m -s /bin/bash steam
 
-USER steam
-
 ADD scripts/dockerfile/ /build
 
 RUN /bin/bash /build/build.sh
 
+USER steam
 EXPOSE 8999
 
 VOLUME [ "/server", "/foundry", "/home/steam/.steam" ]
