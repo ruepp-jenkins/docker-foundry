@@ -29,11 +29,11 @@ function start() {
     exit 1
   fi
 
-  echo "Preparing wine environment"
-  Xvfb :0 -screen 0 640x480x24:32 &
+  echo "Install/update gaming files"
+  /usr/games/steamcmd +force_install_dir "${GAMESERVER_FILES}" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
 
   echo "Launching gameserver"
-  DISPLAY=:0.0 wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe -log > ${GAMESERVER_FILES}/server.log
+  xvfb-run wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe -log > ${GAMESERVER_FILES}/server.log
 }
 
 start
