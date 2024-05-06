@@ -18,8 +18,7 @@ ENV GAMESERVER_FILES="/server"
 ENV STEAM_ADDITIONAL_UPDATE_ARGS=""
 ENV TZ="Europe/Berlin"
 
-RUN groupadd -g "${GID}" steam \
-    && useradd --create-home --no-log-init -u "${UID}" -g "${GID}" steam
+RUN  groupadd -g ${GID} steam && useradd -u ${UID} -g ${GID} -m -s /bin/bash steam
 
 USER steam
 
