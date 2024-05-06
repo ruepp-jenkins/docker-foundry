@@ -28,5 +28,5 @@ USER steam
 EXPOSE 3724
 EXPOSE 27015
 
-VOLUME [ "/server", "/foundry", "/home/steam/Steam" ]
+VOLUME [ "/server", "/foundry", "/home/steam/Steam", "/home/steam/.local/share/Steam" ]
 CMD [ "/docker/start.sh" ]
