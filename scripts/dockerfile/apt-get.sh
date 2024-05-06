@@ -7,7 +7,11 @@ apt-get install -y \
     curl \
     lib32gcc-s1 \
     software-properties-common \
-    tzdata
+    tzdata \
+    wine \
+    winbind \
+    xvfb \
+    xserver-xorg
 
 echo "Adding apt repositories"
 add-apt-repository -y -n multiverse
