@@ -15,6 +15,7 @@ ENV GAMESERVER_FILES="/server"
 ENV STEAM_GAMESERVERID="2915550"
 ENV STEAM_ADDITIONAL_UPDATE_ARGS=""
 ENV TZ="Europe/Berlin"
+ENV FOUNDRY_SAVE="/foundry"
 
 ADD scripts/dockerfile/ /build
 
@@ -27,5 +28,5 @@ USER steam
 EXPOSE 3724
 EXPOSE 27015
 
-VOLUME [ "/server", "/home/steam/Steam", "/home/steam/.local/share/Steam" ]
+VOLUME [ "/server", "/home/steam/.local/share/Steam". "/foundry" ]
 CMD [ "/docker/start.sh" ]
