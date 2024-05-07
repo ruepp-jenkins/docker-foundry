@@ -20,4 +20,4 @@ echo "Preparing wine"
 xvfb-run winecfg /v # shows version and creates the default .wine structure - includes mount / to z:
 
 echo "Launching gameserver"
-xvfb-run wine start /d "Z:\\server" "Z:\\server\\${GAMESERVER_CMD}" | tee ${GAMESERVER_FILES}/docker.log
+xvfb-run wine start /d "Z:\\server" "Z:\\server\\${GAMESERVER_CMD}" | tee /server/docker.log
