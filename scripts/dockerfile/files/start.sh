@@ -18,11 +18,7 @@ echo "Install/update gaming files"
 /usr/games/steamcmd +force_install_dir "${GAMESERVER_FILES}" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
 
 echo "Mounting save folder to S:"
-mkdir -p /home/steam/.wine/dosdevices
-if [ -f /home/steam/.wine/dosdevices/s: ]; then
-  rm /home/steam/.wine/dosdevices/s:
-fi
-ln -s ${FOUNDRY_SAVE} /home/steam/.wine/dosdevices/s:
+WINEPREFIX=~/.wine winecfg && WINEPREFIX=~/.wine wine "C:\\windows\\system32\\subst.exe" S: /D "/foundry"
 
 echo "Launching gameserver"
 xvfb-run wine ${GAMESERVER_FILES}/${GAMESERVER_CMD} | tee ${GAMESERVER_FILES}/docker.log
