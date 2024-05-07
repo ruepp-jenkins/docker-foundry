@@ -5,7 +5,7 @@ echo "Steam additional update args: ${STEAM_ADDITIONAL_UPDATE_ARGS}"
 echo "Steam launch command: ${GAMESERVER_CMD}"
 echo "Foundry save folder: ${FOUNDRY_SAVE}"
 
-if [ ! -f /serverfiles/app.cfg ]; then
+if [ ! -f /server/app.cfg ]; then
   echo "Configuration file missing, creating default file."
   echo "Adjust this file to your needs and start the container again. See:"
   echo "https://dedicated.foundry-game.com/"
@@ -14,7 +14,7 @@ if [ ! -f /serverfiles/app.cfg ]; then
 fi
 
 echo "Install/update gaming files"
-/usr/games/steamcmd +force_install_dir "/serverfiles" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
+/usr/games/steamcmd +force_install_dir "/server" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
 
 echo "Preparing wine"
 xvfb-run winecfg /v
