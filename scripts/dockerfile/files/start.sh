@@ -17,8 +17,8 @@ fi
 echo "Install/update gaming files"
 /usr/games/steamcmd +force_install_dir "${GAMESERVER_FILES}" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
 
-echo "Mounting save folder to S:"
-mkdir -p "/home/steam/.wine/dosdevices/"
+echo "Prepare wine"
+mkdir -p "/home/steam/.wine/dosdevices/c:"
 ln -s "${FOUNDRY_SAVE}" "/home/steam/.wine/dosdevices/s:"
 
 echo "Launching gameserver"
