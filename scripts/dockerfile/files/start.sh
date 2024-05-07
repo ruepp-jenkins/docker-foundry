@@ -3,19 +3,22 @@ echo "OS Date: $(date)"
 echo "Steam APP ID: ${STEAM_GAMESERVERID}"
 echo "Steam additional update args: ${STEAM_ADDITIONAL_UPDATE_ARGS}"
 echo "Steam launch command: ${GAMESERVER_CMD}"
-echo "Steam serverfiles path: ${GAMESERVER_FILES}"
 echo "Foundry save folder: ${FOUNDRY_SAVE}"
 
-if [ ! -f ${GAMESERVER_FILES}/App.cfg ]; then
+if [ ! -f /serverfiles/App.cfg ]; then
   echo "Configuration file missing, creating default file."
   echo "Adjust this file to your needs and start the container again. See:"
   echo "https://dedicated.foundry-game.com/"
-  cp /docker/App.cfg ${GAMESERVER_FILES}
+  cp /docker/app.cfg /serverfiles
   exit 1
 fi
 
 echo "Install/update gaming files"
-/usr/games/steamcmd +force_install_dir "${GAMESERVER_FILES}" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
+/usr/games/steamcmd +force_install_dir "/serverfiles" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
+
+echo "Preparing wine"
+xvfb-run winecfg /v
+ln -s / /home/steam/.wine/dosdevices/z:
 
 echo "Launching gameserver"
-xvfb-run wine "${GAMESERVER_FILES}/${GAMESERVER_CMD}" | tee ${GAMESERVER_FILES}/docker.log
+xvfb-run wine start /d "Z:\\server" "Z:\\server\\${GAMESERVER_CMD}" | tee ${GAMESERVER_FILES}/docker.log
