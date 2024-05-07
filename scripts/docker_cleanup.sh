@@ -2,4 +2,4 @@
 set -e
 echo "Cleanup docker"
 
-docker buildx prune -a -f
+docker image prune -a -f

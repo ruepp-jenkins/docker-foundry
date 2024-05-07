@@ -6,7 +6,7 @@ scripts/docker_initialize.sh
 
 # run build
 echo "Building image:  ${IMAGE_FULLNAME}"
-docker buildx build \
+docker build \
     -t ${IMAGE_FULLNAME}:latest \
     --push .
 

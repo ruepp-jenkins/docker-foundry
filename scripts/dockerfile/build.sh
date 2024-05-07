@@ -13,7 +13,7 @@ find /build -type f -iname "*.sh" -exec chmod +x {} \;
 /build/tzdata.sh
 
 # determinate build platform
-. /build/platforms/${TARGETPLATFORM}.sh
+#. /build/platforms/${TARGETPLATFORM}.sh
 
 # add persisting
 mkdir -p /docker
