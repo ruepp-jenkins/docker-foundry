@@ -5,7 +5,7 @@ echo "Steam additional update args: ${STEAM_ADDITIONAL_UPDATE_ARGS}"
 echo "Steam launch command: ${GAMESERVER_CMD}"
 echo "Foundry save folder: ${FOUNDRY_SAVE}"
 
-if [ ! -f /serverfiles/App.cfg ]; then
+if [ ! -f /serverfiles/app.cfg ]; then
   echo "Configuration file missing, creating default file."
   echo "Adjust this file to your needs and start the container again. See:"
   echo "https://dedicated.foundry-game.com/"
