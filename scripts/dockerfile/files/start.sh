@@ -17,9 +17,5 @@ fi
 echo "Install/update gaming files"
 /usr/games/steamcmd +force_install_dir "${GAMESERVER_FILES}" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
 
-echo "Preparing wine"
-xvfb-run winecfg /v > /dev/null 2>&1 # create wine default directories and files
-ln -s "${FOUNDRY_SAVE}" "/home/steam/.wine/dosdevices/s:"
-
 echo "Launching gameserver"
-xvfb-run wine "${GAMESERVER_FILES}/${GAMESERVER_CMD}" | tee ${GAMESERVER_FILES}/docker.log
+xvfb-run wine "dir Z:\ && ${GAMESERVER_FILES}/${GAMESERVER_CMD}" | tee ${GAMESERVER_FILES}/docker.log
