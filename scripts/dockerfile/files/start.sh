@@ -17,4 +17,4 @@ echo "Install/update gaming files"
 /usr/games/steamcmd +force_install_dir "${GAMESERVER_FILES}" +login anonymous +@sSteamCmdForcePlatformType windows +app_update ${STEAM_GAMESERVERID} ${GAMESERVER_CMD} validate +quit
 
 echo "Launching gameserver"
-xvfb-run wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe -log | tee ${GAMESERVER_FILES}/server.log
+xvfb-run wine ${GAMESERVER_FILES}/FoundryDedicatedServer.exe | tee ${GAMESERVER_FILES}/docker.log
