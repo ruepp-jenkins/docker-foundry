@@ -9,7 +9,7 @@ if [ ! -f /serverfiles/App.cfg ]; then
   echo "Configuration file missing, creating default file."
   echo "Adjust this file to your needs and start the container again. See:"
   echo "https://dedicated.foundry-game.com/"
-  cp /docker/app.cfg /serverfiles
+  cp /docker/default_app.cfg /serverfiles/app.cfg
   exit 1
 fi
 
