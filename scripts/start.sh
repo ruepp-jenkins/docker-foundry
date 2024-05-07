@@ -6,10 +6,11 @@ scripts/docker_initialize.sh
 
 # run build
 echo "Building image:  ${IMAGE_FULLNAME}"
-docker buildx build \
-    --platform linux/amd64 \
+docker build \
     -t ${IMAGE_FULLNAME}:latest \
-    --push .
+    .
+
+docker push ${IMAGE_FULLNAME}:latest
 
 # cleanup
 scripts/docker_cleanup.sh
