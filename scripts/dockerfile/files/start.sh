@@ -20,6 +20,7 @@ echo "Install/update gaming files"
 echo "Prepare wine"
 mkdir -p "/home/steam/.wine/dosdevices/c:/windows"
 ln -s "${FOUNDRY_SAVE}" "/home/steam/.wine/dosdevices/s:"
+ln -s "${GAMESERVER_FILES}" "/home/steam/.wine/dosdevices/g:"
 
 echo "Launching gameserver"
-xvfb-run wine ${GAMESERVER_FILES}/${GAMESERVER_CMD} | tee ${GAMESERVER_FILES}/docker.log
+xvfb-run wine "g:\${GAMESERVER_FILES}/${GAMESERVER_CMD}" | tee ${GAMESERVER_FILES}/docker.log
