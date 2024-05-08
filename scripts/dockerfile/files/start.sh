@@ -18,4 +18,4 @@ echo "Install/update gaming files"
 
 echo "Launching gameserver"
 cd /server
-xvfb-run --auto-servernum "wine /server/${GAMESERVER_CMD}" | tee /server/docker.log
+xvfb-run --auto-servernum wine "/server/${GAMESERVER_CMD}" | tee /server/docker.log
