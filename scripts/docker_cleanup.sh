@@ -2,4 +2,4 @@
 set -e
 echo "Cleanup docker"
 
-docker image prune -a -f
+# docker image prune -a -f
