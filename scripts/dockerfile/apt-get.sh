@@ -21,6 +21,5 @@ apt-get install -y \
     steamcmd \
     tzdata \
     wine \
-    wine32 \
     xvfb \
     xserver-xorg
