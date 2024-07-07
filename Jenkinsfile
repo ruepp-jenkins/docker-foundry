@@ -19,6 +19,7 @@ pipeline {
     agent {
         label 'docker'
     }
+
     triggers {
         URLTrigger(
             cronTabSpec: 'H/30 * * * *',
@@ -36,6 +37,7 @@ pipeline {
             ]
         )
     }
+
     stages {
         stage('Checkout') {
             steps {
@@ -47,6 +49,16 @@ pipeline {
                 sh 'chmod +x scripts/*.sh'
                 sh './scripts/start.sh'
             }
+        }
+    }
+
+    post {
+        always {
+            discordSend result: currentBuild.currentResult,
+                description: env.GIT_URL,
+                link: env.BUILD_URL,
+                title: JOB_NAME,
+                webhookURL: DISCORD_WEBHOOK
         }
     }
 }
