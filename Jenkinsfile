@@ -3,14 +3,6 @@ properties(
         githubProjectProperty(
             displayName: 'docker-foundry',
             projectUrlStr: 'https://github.com/MyUncleSam/docker-foundry/'
-        ),
-        parameters(
-            [
-                string(
-                    name: 'IMAGE_FULLNAME',
-                    defaultValue: 'stefanruepp/foundry-gameserver'
-                )
-            ]
         )
     ]
 )
@@ -18,6 +10,11 @@ properties(
 pipeline {
     agent {
         label 'docker'
+    }
+
+    environment {
+        IMAGE_FULLNAME = 'ruepp/foundry-gameserver'
+        DOCKER_API_PASSWORD = credentials('DOCKER_API_PASSWORD')
     }
 
     triggers {
@@ -59,6 +56,7 @@ pipeline {
                 link: env.BUILD_URL,
                 title: JOB_NAME,
                 webhookURL: DISCORD_WEBHOOK
+            cleanWs()
         }
     }
 }
