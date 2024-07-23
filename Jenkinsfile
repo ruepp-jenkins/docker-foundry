@@ -3,7 +3,8 @@ properties(
         githubProjectProperty(
             displayName: 'docker-foundry',
             projectUrlStr: 'https://github.com/MyUncleSam/docker-foundry/'
-        )
+        ),
+        disableConcurrentBuilds()
     ]
 )
 
