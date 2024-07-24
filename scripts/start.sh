@@ -8,6 +8,7 @@ scripts/docker_initialize.sh
 echo "Building image:  ${IMAGE_FULLNAME}"
 docker build \
     -t ${IMAGE_FULLNAME}:latest \
+    --pull \
     --push .
 
 # cleanup
