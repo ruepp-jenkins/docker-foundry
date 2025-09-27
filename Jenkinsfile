@@ -10,9 +10,9 @@ properties(
 
 pipeline {
     agent {
-        label 'docker'
         docker {
             image 'docker:dind'
+            label 'docker'
         }
     }
 
