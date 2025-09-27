@@ -11,6 +11,9 @@ properties(
 pipeline {
     agent {
         label 'docker'
+        docker {
+            image 'docker:dind'
+        }
     }
 
     environment {
