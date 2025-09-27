@@ -2,14 +2,13 @@
 set -e
 echo "Starting build workflow"
 scripts/docker_initialize.sh
-. scripts/steam.sh
+
+DATESTAMP=$(date +%Y%m%d)
 
 # run build
 echo "Building image:  ${IMAGE_FULLNAME}"
 docker build \
     -t ${IMAGE_FULLNAME}:latest \
+    -t ${IMAGE_FULLNAME}:${DATESTAMP} \
     --pull \
     --push .
-
-# cleanup
-scripts/docker_cleanup.sh
